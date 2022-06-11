@@ -27,7 +27,21 @@ function setGame() {
       if (c == 0 || c == 1) {
         tile.classList.add("vertical-line");
       }
+      tile.addEventListener("click", setTile);
       document.getElementById("board").append(tile);
     }
   }
+}
+
+function setTile() {
+  if (gameOver) {
+    return;
+  }
+
+  let coords = this.id.split("-")
+  let r = parseInt(coords[0]);
+  let c = parseInt(coords[1]);
+
+  board[r][c] = currPlayer;
+  this.innerText = currPlayer;
 }
