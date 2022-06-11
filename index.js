@@ -70,5 +70,17 @@ function checkWinner() {
       gameOver = true;
       return;
     }  
+
+    //vertically
+    for (let c = 0; c < 3; c++) {
+      if (board[0][c] == board[1][c] && board[1][c] == board [2][c] && board[c][0] != ' ') {
+        for (let i = 0; i < 3; i++) {
+          let tile = document .getElementById(i.toString() + "-" + c.toString());
+          tile.classList.add("winner");
+        }
+        gameOver = true;
+        return;
+      }
+    }
   }
 }
